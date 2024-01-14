@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  service:
+    image: "mtk246/${CI_PROJECT_NAME}:${CI_COMMIT_BRANCH}"
+    container_name: "${CI_PROJECT_NAME}-${CI_COMMIT_BRANCH}"
+    networks:
+      - server
+    ports:
+      - 8002:8000
+    restart: always
+networks:
+  server:
+    external: true

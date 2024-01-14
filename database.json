@@ -1,0 +1,11 @@
+{
+  "dev": {
+    "driver": "mysql",
+    "host": "3.141.174.51",
+    "port": "3308",
+    "user": "takeitnow",
+    "password": "takeitnow123",
+    "database": "takeitnow-test",
+    "multipleStatements": true
+  }
+}

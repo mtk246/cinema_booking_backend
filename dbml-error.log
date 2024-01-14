@@ -1,0 +1,27 @@
+2023-06-01T05:39:50.235Z
+SyntaxError: You have a syntax error at "takeitnow.sql" line 36 column 5. Expected ")" or fields but "d" found.
+    at /Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/utils.js:45:13
+    at Array.forEach (<anonymous>)
+    at generate (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/utils.js:39:14)
+    at importHandler (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/import.js:27:27)
+    at Object.sql2dbml (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/index.js:27:23)
+    at Object.<anonymous> (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/bin/sql2dbml.js:4:19)
+    at Module._compile (node:internal/modules/cjs/loader:1126:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1180:10)
+    at Module.load (node:internal/modules/cjs/loader:1004:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:839:12)
+
+ROOT_ERROR:
+SyntaxError: Expected ")" or fields but "d" found.
+    at peg$buildStructuredError (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/mysqlParser.js:1045:12)
+    at Object.peg$parse [as parse] (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/mysqlParser.js:8797:11)
+    at Function.parseMySQLToJSON (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:33:38)
+    at Function.parse (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/parse/Parser.js:61:32)
+    at Object._import [as import] (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/node_modules/@dbml/core/lib/import/index.js:11:37)
+    at /Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/import.js:27:68
+    at /Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/utils.js:42:23
+    at Array.forEach (<anonymous>)
+    at generate (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/utils.js:39:14)
+    at importHandler (/Users/minthukyaw/.nvm/versions/node/v16.17.0/lib/node_modules/@dbml/cli/lib/cli/import.js:27:27)
+{"start":{"offset":898,"line":36,"column":5},"end":{"offset":899,"line":36,"column":6}}
+
