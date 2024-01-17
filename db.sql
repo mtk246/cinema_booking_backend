@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS
 sch_movie_management.movie_tbl (
     movie_id text COLLATE pg_catalog."default" NOT NULL,
     movie_name text COLLATE pg_catalog."default",
-    status boolean,
+    status boolean DEFAULT true,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     created_by text COLLATE pg_catalog."default" NOT NULL,
@@ -46,8 +46,10 @@ CREATE TABLE IF NOT EXISTS
 sch_movie_management.movie_time_tbl (
     movie_time_id text COLLATE pg_catalog."default" NOT NULL,
     movie_id text COLLATE pg_catalog."default" NOT NULL,
-    start_time timestamp with time zone,
-    end_time timestamp with time zone,
+    start_time character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    end_time character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    start_date date NOT NULL,
+    end_date date NOT NULL,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
     created_by text COLLATE pg_catalog."default" NOT NULL,
