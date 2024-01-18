@@ -31,6 +31,7 @@ router.get('/theatre', theatreController.get);
 router.post('/theatre', verifyToken, theatreController.createTheatre);
 router.put('/theatre', verifyToken, theatreController.updateTheatre);
 
-router.get('/seats', seatController.get);
+// Seat Management
+router.post('/seats', seatController.createSeat);
 
 exports.api_router = router;
