@@ -162,25 +162,46 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS sch_movie_booking_management."booking_tbl"
     OWNER to cinema;
+
 ---
 
--- CREATE TABLE IF NOT EXISTS
+CREATE TABLE IF NOT EXISTS
 
--- sch_theatre_management.seat_number_tbl (
---     seat_number_id text COLLATE pg_catalog."default" NOT NULL,
---     seat_name text COLLATE pg_catalog."default" NOT NULL,
---     theatre_id text COLLATE pg_catalog."default" NOT NULL,
---     created_by text COLLATE pg_catalog."default" NOT NULL,
---     created_at timestamp with time zone,
---     updated_at timestamp with time zone,
---     CONSTRAINT seat_number_tbl_pkey PRIMARY KEY (seat_number_id)
--- )
+sch_theatre_management.theatre_tbl (
+    theatre_id text COLLATE pg_catalog."default" NOT NULL,
+    theatre_name text COLLATE pg_catalog."default" NOT NULL,
+    status boolean DEFAULT true,
+    created_by text COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone,
+    CONSTRAINT theatre_tbl_pkey PRIMARY KEY (theatre_id)
+)
 
--- TABLESPACE pg_default;
+TABLESPACE pg_default;
 
--- ALTER TABLE IF EXISTS sch_theatre_management."seat_number_tbl"
---     OWNER to cinema;
--- -- ---
+ALTER TABLE IF EXISTS sch_theatre_management."theatre_tbl"
+    OWNER to cinema;
+-- ---
+
+---
+
+CREATE TABLE IF NOT EXISTS
+
+sch_theatre_management.seat_number_tbl (
+    seat_number_id text COLLATE pg_catalog."default" NOT NULL,
+    seat_name text COLLATE pg_catalog."default" NOT NULL,
+    theatre_id text COLLATE pg_catalog."default" NOT NULL,
+    created_by text COLLATE pg_catalog."default" NOT NULL,
+    created_at timestamp with time zone,
+    updated_at timestamp with time zone,
+    CONSTRAINT seat_number_tbl_pkey PRIMARY KEY (seat_number_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS sch_theatre_management."seat_number_tbl"
+    OWNER to cinema;
+-- ---
 
 ---
 CREATE TABLE IF NOT EXISTS

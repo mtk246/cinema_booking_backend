@@ -5,6 +5,8 @@ const userController = require('../../Controller/userController');
 const loginController = require('../../Controller/loginController');
 const { verifyToken } = require('../../middlewares/authMiddleware');
 const movieController = require('../../Controller/movieController');
+const seatController = require('../../Controller/seatController');
+const theatreController = require('../../Controller/theatreController');
 
 router.get("/hello", helloController.hello);
 
@@ -22,5 +24,13 @@ router.post('/movie', verifyToken, movieController.post);
 router.put('/movie', verifyToken, movieController.put);
 router.get('/movie/schedules', movieController.getSchedules);
 router.post('/movie/schedules', verifyToken, movieController.createSchedule);
+
+
+// Theatre Management
+router.get('/theatre', theatreController.get);
+router.post('/theatre', verifyToken, theatreController.createTheatre);
+router.put('/theatre', verifyToken, theatreController.updateTheatre);
+
+router.get('/seats', seatController.get);
 
 exports.api_router = router;
