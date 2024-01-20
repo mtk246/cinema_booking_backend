@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS
 
 sch_movie_management.movie_tbl (
     movie_id text COLLATE pg_catalog."default" NOT NULL,
+    theatre_id text COLLATE pg_catalog."default" NOT NULL,
     movie_name text COLLATE pg_catalog."default",
     status boolean DEFAULT true,
     created_at timestamp with time zone,
@@ -46,6 +47,7 @@ CREATE TABLE IF NOT EXISTS
 sch_movie_management.movie_time_tbl (
     movie_time_id text COLLATE pg_catalog."default" NOT NULL,
     movie_id text COLLATE pg_catalog."default" NOT NULL,
+    theatre_id text COLLATE pg_catalog."default" NOT NULL,
     start_time character varying(10) COLLATE pg_catalog."default" NOT NULL,
     end_time character varying(10) COLLATE pg_catalog."default" NOT NULL,
     start_date date NOT NULL,
@@ -131,6 +133,7 @@ sch_movie_ticket_management.movie_ticket_tbl (
     created_by text COLLATE pg_catalog."default" NOT NULL,
     created_at timestamp with time zone,
     updated_at timestamp with time zone,
+    ticket_last_number text COLLATE pg_catalog."default",
     CONSTRAINT movie_ticket_tbl_pkey PRIMARY KEY (ticket_id)
 )
 
@@ -148,6 +151,7 @@ sch_movie_booking_management.booking_tbl (
     ticket_id text COLLATE pg_catalog."default" NOT NULL,
     booked_by text COLLATE pg_catalog."default" NOT NULL,
     seat_number_id text COLLATE pg_catalog."default" NOT NULL,
+    booking_last_number text COLLATE pg_catalog."default",
     theatre_id text COLLATE pg_catalog."default" NOT NULL,
     quantity integer,
     total_amount double precision,
@@ -190,6 +194,7 @@ CREATE TABLE IF NOT EXISTS
 sch_theatre_management.seat_number_tbl (
     seat_number_id text COLLATE pg_catalog."default" NOT NULL,
     seat_name text COLLATE pg_catalog."default" NOT NULL,
+    seat_price double precision,
     theatre_id text COLLATE pg_catalog."default" NOT NULL,
     created_by text COLLATE pg_catalog."default" NOT NULL,
     created_at timestamp with time zone,
@@ -211,6 +216,8 @@ sch_user_management.user_tbl (
     name text COLLATE pg_catalog."default",
     user_name text COLLATE pg_catalog."default",
     user_password text COLLATE pg_catalog."default",
+    email text COLLATE pg_catalog."default",
+    phone_number text COLLATE pg_catalog."default",
     status boolean,
     role integer,
     created_at timestamp with time zone,
@@ -223,63 +230,3 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS sch_user_management."user_tbl"
     OWNER to cinema;
 ---
-
----
--- CREATE SEQUENCE IF NOT EXISTS purchase_voucher_id_seq START 1000;
-
--- CREATE TABLE IF NOT EXISTS
-
--- sch_voucher_management.purchase_voucher_tbl (
---     purchase_voucher_id text DEFAULT CONCAT(nextval('purchase_voucher_id_seq'), '-PC') NOT NULL,
---     purchase_id text COLLATE pg_catalog."default",
---     created_at timestamp with time zone,
---     updated_at timestamp with time zone,
---     CONSTRAINT purchase_voucher_tbl_pkey PRIMARY KEY (purchase_voucher_id)
--- )
-
--- TABLESPACE pg_default;
-
--- ALTER TABLE IF EXISTS sch_user_management."user_tbl"
---     OWNER to cinema;
----
----
--- CREATE TABLE IF NOT EXISTS
-
--- sch_production_management.production_tbl (
---     production_id text COLLATE pg_catalog."default" NOT NULL,
---     recipe_group_id text COLLATE pg_catalog."default",
---     recipe_item_id text COLLATE pg_catalog."default",
---     actual_weight double precision,
---     actual_quantity double precision,
---     is_weight boolean,
---     user_id text COLLATE pg_catalog."default",
---     created_at timestamp with time zone,
---     updated_at timestamp with time zone,
---     CONSTRAINT production_tbl_pkey PRIMARY KEY (production_id)
--- )
-
--- TABLESPACE pg_default;
-
--- ALTER TABLE IF EXISTS sch_user_management."production_tbl"
---     OWNER to cinema;
--- ---
--- ---
--- CREATE TABLE IF NOT EXISTS
-
--- sch_production_management.production_history_tbl (
---     production_history_id text COLLATE pg_catalog."default" NOT NULL,
---     recipe_group_id text COLLATE pg_catalog."default",
---     recipe_item_id text COLLATE pg_catalog."default",
---     production_id text COLLATE pg_catalog."default",
---     created_at timestamp with time zone,
---     updated_at timestamp with time zone,
---     unit_qty double precision,
---     total_qty double precision,
---     CONSTRAINT production_history_tbl_pkey PRIMARY KEY (production_history_id)
--- )
-
--- TABLESPACE pg_default;
-
--- ALTER TABLE IF EXISTS sch_user_management."production_history_tbl"
---     OWNER to cinema;
--- ---
